@@ -1,60 +1,60 @@
-HLSの使用方法
+How to use HLS
 
-1.update & upgradeで最新まで上げておきます。
+1. Update & upgrade to the latest version.
 
 sudo apt update
 sudo apt upgrade
 
 
-2.nginxのレポジトリーを追加します。Officalじゃないので確認されるが[Enter]で進みます。
+2. Add the nginx repository. Since it is not Offical, it is confirmed, but proceed with [Enter].
 
 sudo add-apt-repository ppa:nginx/stable
 
 
-3.rtspモジュールを追加します。
+3. Add the rtsp module.
 
 sudo apt install -y nginx libnginx-mod-rtmp
 
 
-4.rtmpの設定をnginx.confの末尾に追加します。
+4. Add the rtmp setting to the end of nginx.conf.
 
 sudo nano /etc/nginx/nginx.conf
 
-ここのファイルに付属のnginx.confを追加
+Add the attached nginx.conf to this file
 
 
-5.サービスリスタートします。
+5. Restart the service.
 
 sudo service nginx restart
 
 
-6.index.htmlにhtml5対応のビューワーのvideo-jsを追加します。
+6. Add html5-compatible viewer video-js to index.html.
 
-{ip}をサーバーIPに、{key}をストリームキーに置き換えてください。
+Replace {ip} with your server IP and {key} with your stream key.
 
 sudo nano /var/www/html/index.html
 
-ここに付属のindex.htmlを追加
+Add the included index.html here
 
 
-7.配信にはOBSなどを使う
+7. Use OBS etc. for distribution
 
-配信情報は以下のように設定します。
+Set the delivery information as follows.
 
-{ip}をサーバーIPに、{key}をストリームキーに置き換えてください。
+Replace {ip} with your server IP and {key} with your stream key.
 
-配信先： rtmp://{ip}:1935/live
-スリームキー： {key}
+Delivery destination: rtmp://{ip}:1935/live
+Dream key: {key}
 
 
-8.UI構築
+8.UI construction
 
-付属のlive/index.htmlを追加
+Add attached live/index.html
 
- 先程のindex.html
-            　　|--liveディレクトリ--|
-            　　　　　　　　　　　　　index.html
+ Index.html
+            ---Live directory--|
+            Index index.html
 
-あとはhttp://(IPアドレス)/live/にアクセスすると配信が表示されます。
+After that, when you access http://[IP address)/live/, the distribution will be displayed.
 
-これで配信サーバー構築完了です。お疲れ様でした。
+This completes building the distribution server. Thank you for your hard work.
